@@ -12,12 +12,12 @@
   <header class="header header--home">
 
     <!-- Menu principal -->
-    <button class="burger" type="button" aria-label="Menu">
+    <button class="burger" type="button" aria-label="Menu" popovertarget="menu" autofocus>
       🍔
-    </button>
+    </button>   <!-- Permet d'ouvrir et fermer le menu avec espace -->
 
-    <nav class="menu" aria-label="Main menu">
-      <button class="menu__close burger burger--close" type="button" aria-label="Close the menu">
+    <nav class="menu" id="menu" popover aria-label="Main menu"> <!-- pour faire disparaitre le menu -->
+      <button class="burger burger--close" type="button" popovertarget="menu" aria-label="Menu">    <!-- permet de fermer le menu avec le bouton humbeurger -->
         🍔
       </button>
       <ul class="menu__list">

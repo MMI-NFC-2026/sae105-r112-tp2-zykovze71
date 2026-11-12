@@ -1,1 +1,64 @@
-/* code css à faire */
+/* --- menu (popover plein écran) ------------------------------------------ */
+/* La feuille du navigateur a déjà fixé le panneau à l'écran
+   (position: fixed; inset: 0) : on l'étire, sans positionner. */
+.menu {
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+html:has(.menu:popover-open) {
+  overflow: hidden;
+}
+/* LE MENU S'OUVRE EN PLEIN ECRAN */
+/*EMPECHE LE SCROLL DE LA PAGE EN ARRIERE */
+
+
+
+/* --- burger ---------------------------- */
+.burger {
+  cursor: pointer;
+}
+ /* PERMET DE CHANGER L'APPARENCE DU CURSEUR */
+
+.burger--close {
+  transition: transform 400ms;
+}
+/* PERMET DE CHANGER L'APPEARANCE DU BOUTON LORS DU SURVOLE DU MENU */
+.menu {
+  /* … on complète le bloc existant … */
+  transition: 400ms allow-discrete;
+  opacity: 0;
+}
+
+.menu:popover-open {
+  opacity: 1;
+}
+/*définir les valeurs de départ des propriétés appliquées à un élément */
+@starting-style {
+  .menu:popover-open {
+    opacity: 0;
+  }
+}
+/* FONDU DE MENU RENDANT LA TRANSITION FLUIDE */
+
+/* @starting-style définit les valeurs de départ des propriétés appliquées à un élément,/*
+/* À l'ouverture, même position  hamburger  */
+@starting-style {
+  .menu:popover-open .burger--close {
+    transform: none;
+  }
+}
+ /* definition des valeurs de la rotation*/
+.menu:popover-open .burger--close {
+  transform: rotate(90deg);
+  transition: 400ms;
+}
+/* ROTATION DU BOUTON LORS DE L'OUVERTURE DU MENU */
+@media (prefers-reduced-motion: reduce) {
+  .menu,
+  .menu .burger--close {
+    transition: none;
+  }
+}
+/* PERMET DE DESACTIVER LES ANIMATIONS POUR LES UTILISATEURS QUI LE DEMANDENT il a fallut tapper une commande dans inspecter */
+
